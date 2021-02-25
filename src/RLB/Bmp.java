@@ -165,7 +165,7 @@ public class Bmp {
 		for (int ix = 0;ix < g.GetWidth();ix ++){
 			for (int iy = 0;iy < g.GetHeight();iy ++){
 				if (GetColorV(g.GetPixel(ix, iy),WindowsFrame.SpecialColor) < cs){
-					desPic.SetPixel(ix, iy, WindowsFrame.SpecialColor);
+					desPic.SetPixel(ix, iy, WindowsFrame.RLB_SpecialColor);
 				}
 				else{
 					desPic.SetPixel(ix, iy, g.GetPixel(ix, iy));

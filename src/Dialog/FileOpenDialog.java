@@ -7,7 +7,8 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 
 public class FileOpenDialog {
-	
+
+	static File defaultOpenFolderFile = new File(".");
 	File ReturnFile;
 	File[] ReturnFiles;
 
@@ -57,6 +58,7 @@ public class FileOpenDialog {
 			ReturnFiles = null;
 		}
 		else{
+			defaultOpenFolderFile = fileChooser.getCurrentDirectory();
 			ReturnFile = fileChooser.getSelectedFile();
 			ReturnFiles = fileChooser.getSelectedFiles();
 		}
@@ -69,11 +71,11 @@ public class FileOpenDialog {
 
 	
 	public FileOpenDialog(){
-		this(null,".",new String[][]{{".java","Java文件(*.java)"}});
+		this(null,defaultOpenFolderFile.getAbsolutePath(),new String[][]{{".java","Java文件(*.java)"}});
 	}
 	
 	public FileOpenDialog(String[][] s){
-		this(null,".",s);
+		this(null,defaultOpenFolderFile.getAbsolutePath(),s);
 	}
 	
 	public File SelectedFile(){

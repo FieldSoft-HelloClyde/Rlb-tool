@@ -68,6 +68,10 @@ public class WindowsFrame extends JFrame {
 	 * 过滤色设置
 	 */
 	static public Color SpecialColor = new Color(255, 0, 255);
+	/**
+	 * RLB过滤色
+	 */
+	static public Color RLB_SpecialColor = new Color(255, 0, 255);
 	
 	JLabel lblX;
 	RlbFile ResFile = new RlbFile();
@@ -193,7 +197,7 @@ public class WindowsFrame extends JFrame {
 		JMenuItem menuItem = new JMenuItem("\u6253\u5F00");
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (ResFile.IsMod() == true){
+				if (ResFile.IsMod()){
 					if (ShowIsSaveDialog() == 2)
 						return;
 				}
@@ -230,6 +234,7 @@ public class WindowsFrame extends JFrame {
 				else{
 					try {
 						ResFile.SaveRlb(ResFile.getSrcFile());
+						JOptionPane.showMessageDialog(null, "保存完成!");
 					} catch (IOException e1) {
 						// TODO 自动生成的 catch 块
 						e1.printStackTrace();
@@ -987,6 +992,7 @@ public class WindowsFrame extends JFrame {
 			}
 			try {
 				ResFile.SaveRlb(DesRlbFile);
+				JOptionPane.showMessageDialog(null, "保存完成!");
 			} catch (IOException e1) {
 				// TODO 自动生成的 catch 块
 				e1.printStackTrace();

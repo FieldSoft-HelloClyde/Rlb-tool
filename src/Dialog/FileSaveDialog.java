@@ -8,6 +8,7 @@ import javax.swing.filechooser.FileFilter;
 
 public class FileSaveDialog {
 	File ReturnFile;
+	static File saveFolder = new File(".");
 
 	public FileSaveDialog(Component parent,String PathName,String[][] fileENames){
 
@@ -53,16 +54,17 @@ public class FileSaveDialog {
 			ReturnFile = null;
 		}
 		else{
+			saveFolder = fileChooser.getCurrentDirectory();
 			ReturnFile = fileChooser.getSelectedFile();
 		}
 	}
 	
 	public FileSaveDialog(){
-		this(null,".",new String[][]{{".java","Java文件(*.java)"}});
+		this(null,saveFolder.getAbsolutePath(),new String[][]{{".java","Java文件(*.java)"}});
 	}
 	
 	public FileSaveDialog(String[][] s){
-		this(null,".",s);
+		this(null,saveFolder.getAbsolutePath(),s);
 	}
 	
 	public File SelectedFile(){
