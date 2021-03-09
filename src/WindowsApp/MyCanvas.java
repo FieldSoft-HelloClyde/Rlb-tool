@@ -25,9 +25,9 @@ public class MyCanvas extends Panel {
 				else if (ShowMode == 1){
 					Color TempColor;
 					TempColor = res.GetPixel(ix, iy);
-					if (!(TempColor.getBlue() == WindowsFrame.SpecialColor.getBlue() && 
-							TempColor.getGreen() == WindowsFrame.SpecialColor.getGreen() && 
-							TempColor.getRed() == WindowsFrame.SpecialColor.getRed())){
+					if (!(TempColor.getBlue() == WindowsFrame.RLB_SpecialColor.getBlue() &&
+							TempColor.getGreen() == WindowsFrame.RLB_SpecialColor.getGreen() &&
+							TempColor.getRed() == WindowsFrame.RLB_SpecialColor.getRed())){
 						g.setColor(res.GetPixel(ix, iy));
 						g.drawLine(ix, iy, ix, iy);
 					}

@@ -283,7 +283,7 @@ public class WindowsFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO 自动生成的方法存根
 				try {
-					FileOpenDialog FileOpenDialog1 = new FileOpenDialog(null,".",new String[][]{{".bmp","bmp图片(*.bmp)"},{".png","png图片(*.png)"}},true);
+					FileOpenDialog FileOpenDialog1 = new FileOpenDialog(null,new String[][]{{".bmp","bmp图片(*.bmp)"},{".png","png图片(*.png)"}},true);
 					if (FileOpenDialog1.SelectedFiles() != null){
 						int Index;
 						Index = list.getSelectedIndex();

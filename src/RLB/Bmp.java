@@ -39,7 +39,11 @@ public class Bmp {
 		        int r   = (srgb >> 16) & 0xff;
 		        int g = (srgb >>  8) & 0xff;
 		        int b  = (srgb) & 0xff;
-				desPic.SetPixel(i, j, new Color(r,g,b,a));
+		        if (a == 0x00){
+					desPic.SetPixel(i, j, WindowsFrame.SpecialColor);
+				}else{
+					desPic.SetPixel(i, j, new Color(r,g,b, 0xff));
+				}
 			}
 		}
 		return desPic;
