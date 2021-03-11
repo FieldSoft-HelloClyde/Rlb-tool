@@ -22,7 +22,16 @@ public class Bmp {
 		System.out.println((ii & 0x00ff00) >> 8);
 		System.out.println((ii & 0xff0000) >> 16);
 	}
-	
+
+	public static Color mix(Color c1, Color c2){
+		float a1 = (float) c1.getAlpha() / 0xff;
+		float a2 = 1 - a1;
+		int r = (int) (c1.getRed() * a1 + c2.getRed() * a2);
+		int g = (int) (c1.getGreen() * a1 + c2.getGreen() * a2);
+		int b = (int) (c1.getBlue() * a1 + c2.getBlue() * a2);
+		return new Color(r, g, b, 0xff);
+	}
+
 	/**
 	 * µ¼ÈëPNGÎªPICTURE
 	 */
@@ -42,7 +51,8 @@ public class Bmp {
 		        if (a == 0x00){
 					desPic.SetPixel(i, j, WindowsFrame.SpecialColor);
 				}else{
-					desPic.SetPixel(i, j, new Color(r,g,b, 0xff));
+		        	Color mixColor = mix(new Color(r, g, b, a) , new Color(0xff, 0xff, 0xff));
+					desPic.SetPixel(i, j, mixColor);
 				}
 			}
 		}
